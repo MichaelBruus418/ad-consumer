@@ -19,7 +19,7 @@ class  HomeController @Inject()(val controllerComponents: ControllerComponents) 
 
      val viewModel = new ArticlePageViewModel(getArticle)
 
-    Ok(views.html.home.article_page())
+    Ok(views.html.home.article_page(viewModel))
   }
 
 
