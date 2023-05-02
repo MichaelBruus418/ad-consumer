@@ -9,10 +9,15 @@
 
 @body = {
 	@views.html.shared.page_layouts._standard(
+		/* Header content */
 		Html("HEADER"),
-		Html("CONTENT"),
+		/* Body conetent */
+		views.html.shared.content_layouts.article(viewModel),
+		/* Footer content */
 		Html("FOOTER"),
+		/* Left sidebar content */
 		Html("LEFT"),
+		/* Right sidebar content  */
 		Html("RIGHT"),
 	)
 }
