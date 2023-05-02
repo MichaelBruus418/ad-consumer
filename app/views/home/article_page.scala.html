@@ -1,0 +1,20 @@
+@import viewModels.ArticlePageViewModel
+@(viewModel: ArticlePageViewModel)
+
+@title = @{"The Title"}
+
+@head = {
+	<!-- I'm head -->
+}
+
+@body = {
+	@views.html.shared.page_layouts._standard(
+		Html("HEADER"),
+		Html("CONTENT"),
+		Html("FOOTER"),
+		Html("LEFT"),
+		Html("RIGHT"),
+	)
+}
+
+@shared._main(title)(head)(body)

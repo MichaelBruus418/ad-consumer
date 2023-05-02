@@ -1,0 +1,26 @@
+@(
+				header: Html,
+				content: Html,
+				footer: Html,
+				sidebarLeft: Html = Html(""),
+				sidebarRight: Html = Html(""),
+)
+
+<div id="pageLayout_container">
+	<header id="pageLayout_header">
+		@header
+	</header>
+	<main id="pageLayout_main">
+		@content
+	</main>
+	<div id="pageLayout_sidebar left" class="pageLayout_sidebar">
+		@sidebarLeft
+	</div>
+	<div id="pageLayout_sidebarRight" class="pageLayout_sidebar">
+		@sidebarRight
+	</div>
+	<footer id="pageLayout_footer">
+		@footer
+	</footer>
+</div>
+
