@@ -1,0 +1,28 @@
+@import java.time.LocalDate
+@import java.time.format.DateTimeFormatter
+@import java.time.format.FormatStyle
+@import java.util.Locale
+@import java.text.SimpleDateFormat
+@import java.util.Date
+@import java.text.DateFormat
+@()
+
+<div class="container">
+	<div class="left">
+		@{
+			val currentDate = LocalDate.now();
+			val locale = new Locale("da", "DK");
+			val formatter = DateTimeFormatter.ofPattern("EEEE d. MMMM YYYY").withLocale(locale);
+			formatter.format(currentDate).toUpperCase();
+		}
+	</div>
+	<div class="center">
+		Bruus-Posten
+	</div>
+	<div class="right">
+		<button class="logIn" onclick="alert('You clicked!')">LOG IND</button>
+		<div class="vertical-pipe"></div>
+		<button class="koeb" onclick="alert('You clicked!')">KØB</button>
+		<button class="menu" onclick="alert('You clicked!')">MENU</button>
+	</div>
+</div>

@@ -1,25 +1,28 @@
 @import viewModels.ArticlePageViewModel
 @(viewModel: ArticlePageViewModel)
 
-@title = @{"The Title"}
+@title = @{viewModel.article.title}
 
 @head = {
-	<!-- I'm head -->
+	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/pageDefault.css")">
+	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/article.css")">
+	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/header.css")">
+	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/footer.css")">
 }
 
 @body = {
-	@views.html.shared.page_layouts._standard(
-		/* Header content */
-		Html("HEADER"),
-		/* Body conetent */
-		views.html.shared.content_layouts.article(viewModel),
-		/* Footer content */
-		Html("FOOTER"),
-		/* Left sidebar content */
+	@views.html.components.layouts._pageDefault(
+		/* Header */
+		views.html.components._header(),
+		/* Main */
+		views.html.components.layouts._article(viewModel.article),
+		/* Footer */
+		views.html.components._footer(),
+		/* Left sidebar */
 		Html("LEFT"),
-		/* Right sidebar content  */
+		/* Right sidebar */
 		Html("RIGHT"),
 	)
 }
 
-@shared._main(title)(head)(body)
+@_main(title)(head)(body)

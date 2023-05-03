@@ -1,0 +1,87 @@
+
+header .container {
+    /*background-color: brown;*/
+    display: grid;
+    width: 100%;
+    max-width: 1280px;
+    grid-template-columns: 250px auto 250px;
+    grid-template-rows: auto;
+    grid-template-areas: "left center right";
+    align-items: center;
+    padding: 0 15px;
+    font-size: 12px;
+}
+
+header .container .left {
+    /*background-color: red;*/
+    grid-area: left;
+    font-family: arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+header .container .center {
+    /*background-color: green;*/
+    grid-area: center;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+header .container .right {
+    /*background-color: blue;*/
+    grid-area: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: arial, sans-serif;
+    letter-spacing: 2px;
+}
+
+header button {
+    background-color: inherit;
+    height: 30px;
+    border-radius: 5px;
+    font: inherit;
+    letter-spacing: inherit;
+    padding: 0 10px;
+}
+
+
+
+header .vertical-pipe {
+    background-color: #cccccc;
+    width: 1px;
+    height: 24px;
+    margin: 0 15px;
+}
+
+header button.logIn {
+    /*background-color: #35b6ad;*/
+    padding: 0;
+}
+
+header button.logIn:hover {
+    /*background-color: #35b6ad;*/
+    text-decoration: underline;
+}
+
+header button.koeb {
+    /*background-color: #35b6ad;*/
+    border: 1px solid #35b6ad;
+    color: #35b6ad;
+}
+
+header button.koeb:hover {
+    background-color: #35b6ad;
+    color: #ffffff;
+}
+
+header button.menu {
+    margin-left: 15px;
+    border: 1px solid #000000;
+}
+
+header button.menu:hover {
+    background-color: #006860;
+    color: #ffffff;
+}

@@ -1,9 +1,7 @@
 package controllers
 
 import models.Article
-
 import javax.inject._
-import play.api._
 import play.api.mvc._
 import play.twirl.api.Html
 import viewModels.ArticlePageViewModel
@@ -17,24 +15,27 @@ class  HomeController @Inject()(val controllerComponents: ControllerComponents) 
 
    def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
 
-     val viewModel = new ArticlePageViewModel(getArticle)
+     val viewModel = ArticlePageViewModel(createArticle)
 
     Ok(views.html.home.article_page(viewModel))
   }
 
 
-  private def getArticle: Article = {
+  private def createArticle: Article = {
     val title = "Experimental Article"
-    val teaser = "This is an exceotional article_page"
-    val body =  Html.apply("""
-     <p>
-      This is a test paragraph.
-     </p>
-     <p>
-        This is a another test paragraph.
-     </p>
-      """.replaceAll("\n\t", " "))
+    val teaser = "...and then this happened!"
+    val description = "What happens when you write an expereimental article?"
+    val body =  Html("""
+      <p>
+        På et institut for cellebiologi i New York var professor Mayumi Ito og 13 andre forskere i gang med at eksaminere årsagen til,
+        at hår bliver gråt på bittesmå mus, da de fandt noget overraskende.
+      </p>
+      <p>
+        Indtil nu var stamceller tænkt som noget, der kun befandt sig i stamcelleafdelingen af hårsækken.
+      </p>
+      """)
+   /* val body = Html("") */
 
-    new Article(title, teaser, body)
+    new Article(title, teaser, description, body)
   }
 }
