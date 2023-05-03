@@ -5,7 +5,7 @@ Box sizing:
 content-box:    Border and padding adds to the size of the element (browser default).
 border-box:     Border and padding doesn't add to the size of the element (but subtracts from available internal space).
 */
-* {
+body, div, img, input, button {
     margin: 0;
     padding: 0;
     border: 0;

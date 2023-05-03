@@ -4,14 +4,14 @@
 @title = @{viewModel.article.title}
 
 @head = {
-	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/pageDefault.css")">
+	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/page.css")">
 	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/article.css")">
 	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/header.css")">
 	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/footer.css")">
 }
 
 @body = {
-	@views.html.components.layouts._pageDefault(
+	@views.html.components.layouts._page(
 		/* Header */
 		views.html.components._header(),
 		/* Main */
