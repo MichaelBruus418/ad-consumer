@@ -1,0 +1,26 @@
+
+.bannerWrapper {
+    /*background-color: blue;*/
+    display: flex;
+    justify-content: center;
+}
+
+.bannerWrapper.body {
+    padding: 30px 0;
+}
+
+.bannerWrapper.body.bottom {
+    padding-bottom: 0;
+}
+
+iframe.banner {
+    border: 0;
+    overflow: clip;
+}
+
+iframe.banner:focus {
+    outline: none;
+}
+
+iframe.banner.body {
+}

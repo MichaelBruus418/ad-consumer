@@ -1,32 +1,26 @@
 
+/* --- Global reset --- */
+
 /*
-Global reset.
 Box sizing:
 content-box:    Border and padding adds to the size of the element (browser default).
 border-box:     Border and padding doesn't add to the size of the element (but subtracts from available internal space).
 */
-body, div, img, input, button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
 
-    /* Reset focus outline (we must define our own)  */
-    /* outline: 0; */
+* {
+    border: 0;
+    box-sizing: border-box;
 }
 
+*:not(p, h1, h2, h3, h4, h5, h6) {
+    margin: 0;
+    padding: 0;
+}
 
-
-/**
-Remove Firefox-only outline on anchors, buttons and input elements.
-*/
-*::-moz-focus-inner {
-    /*
-    padding: 0px;
-    border: 0px;
-    */
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
 }
 
 /**
@@ -36,11 +30,18 @@ img {
     vertical-align: top;
 }
 
+/**********************************************************************************************************************/
+
+/* --- Generic styling classes --- */
+
 /**
-Generic class for centering text.
+Make text unselectable.
 */
-.center {
-    text-align: center;
+.userSelectNone {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /**
@@ -51,3 +52,93 @@ Generic div for clearing floats.
     width: 0;
     height: 0;
 }
+
+
+/*********************************************************************************************************************/
+
+/* --- Defaults for input/button elements --- */
+
+input, button, textarea {
+    --default-border-color: #adadad;
+    --default-font-color: 0, 0, 0;
+    --default-disabled-font-color-alpha: 0.45;
+
+    border: 1px solid var(--default-border-color);
+    border-radius: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    color: rgb(var(--default-font-color));
+    padding: 5px;
+}
+
+input:hover, button:hover, textarea:hover {
+    border-color: #0078d7;
+    cursor: text;
+}
+
+input:focus, button:focus, textarea:focus {
+    outline: 2px solid #0078d7;
+    outline-offset: -1px;
+}
+
+input:disabled, button:disabled, textarea:disabled {
+    border-color: #c0c0c0;
+    color: rgba(var(--default-font-color), var(--default-disabled-font-color-alpha));
+    pointer-events: none;
+}
+
+input:read-only, textarea:read-only {
+    border-color: var(--default-border-color);
+    color: rgba(var(--default-font-color), 0.75);
+    cursor: default;
+}
+
+/**
+Button specific styling.
+ */
+button, input[type=button], input[type=submit] {
+    background-color: #e1e1e1;
+    user-select: none;
+    word-wrap: break-word;
+    padding: 3px 20px;
+}
+
+button:hover, input[type=button]:hover, input[type=submit]:hover {
+    background-color: #e5f1fb;
+    cursor: pointer;
+}
+
+button:active, input[type=button]:active, input[type=submit]:active {
+    background-color: #cce4f7;
+    border-color: #005499;
+    outline: 1px dotted #000000;
+    outline-offset: -3px;
+}
+
+button:disabled, input[type=button]:disabled, input[type=submit]:disabled {
+    border-color: #c0c0c0;
+    color: rgba(var(--default-font-color), var(--default-disabled-font-color-alpha));
+    pointer-events: none;
+}
+
+
+/**********************************************************************************************************************/
+
+/* --- Defaults for table --- */
+
+table {
+    background-color: transparent;
+    border-collapse: collapse;
+}
+
+table, td {
+    border: 1px solid #000000;
+    padding: 3px 6px;
+}
+
+thead {
+    font-weight: bold;
+}
+
+/**********************************************************************************************************************/
+
