@@ -5,12 +5,12 @@ import enums.Zone
 import javax.inject._
 import play.api.mvc._
 import services.BannerService
-import utils.{ArticleUtil, BannerUtil, TestUtil}
+import utils.ArticleUtil
 import viewModels.ArticlePageViewModel
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.util.{Failure, Random, Success, Try}
+import scala.util.{Failure, Success}
 
 @Singleton
 class HomeController @Inject() (
@@ -20,8 +20,6 @@ class HomeController @Inject() (
 
   def index(): Action[AnyContent] = Action.async {
     implicit request: Request[AnyContent] =>
-
-      // TestUtil.main()
 
       val eventuals =
         List(
@@ -38,7 +36,7 @@ class HomeController @Inject() (
       val eventualBannerOpts = eventual.map(_.collect { case Success(x) => x })
       val eventualFailures = eventual.map(_.collect { case Failure(x) => x })
 
-      // Error handling for development
+      // Error handling of failed futures
       for {
         failures <- eventualFailures
       } {

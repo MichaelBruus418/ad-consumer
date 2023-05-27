@@ -2,13 +2,19 @@
 
 @for(b <- banners) {
     <div class="bannerWrapper sidebar">
-        <iframe data-basepath-set="0" data-src="@b.serve" class="banner sidebar" width="@b.width" height="@b.height" scrolling="no" tabindex="-1" loading="lazy"
-            src="@b.serve"
-            srcdoc="
-                <base href='@b.basepath'>
-                @b.html
-            ">
-        </iframe>
+        <iframe
+        class="banner sidebar"
+        width="@b.width"
+        height="@b.height"
+        scrolling="no"
+        tabindex="-1"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        src="@b.serve"
+            @if(b.html.nonEmpty) {
+                srcdoc="@b.html"
+                }
+        ></iframe>
     </div>
 }
 

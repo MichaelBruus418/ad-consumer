@@ -9,11 +9,9 @@ case class Banner(
   zone: String,
   width: Int,
   height: Int,
-  html: Option[String],
-  basepath: Option[String]
+  html: Option[String]
 )
 
 object Banner {
-  // --- Combined read/write ---
   implicit val format: Format[Banner] = Json.format[Banner]
 }

@@ -1,26 +1,26 @@
 @(
-				header: Html,
-				content: Html,
-				footer: Html,
-				sidebarLeft: Html = Html(""),
-				sidebarRight: Html = Html(""),
+    header: Html,
+    content: Html,
+    footer: Html,
+    sidebarLeft: Html = Html(""),
+    sidebarRight: Html = Html(""),
 )
 
 <div id="pageLayout_container">
-	<header id="pageLayout_header">
-		@header
-	</header>
-	<main id="pageLayout_main">
-		@content
-	</main>
-	<div class="pageLayout_sidebar left">
-		@sidebarLeft
-	</div>
-	<div class="pageLayout_sidebar right">
-		@sidebarRight
-	</div>
-	<footer id="pageLayout_footer">
-		@footer
-	</footer>
+    <header id="pageLayout_header">
+        @header
+    </header>
+    <main id="pageLayout_main">
+    @content
+    </main>
+    <div class="pageLayout_sidebar left">
+    @sidebarLeft
+    </div>
+    <div class="pageLayout_sidebar right">
+    @sidebarRight
+    </div>
+    <footer id="pageLayout_footer">
+    @footer
+    </footer>
 </div>
 
