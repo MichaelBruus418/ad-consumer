@@ -6,9 +6,10 @@
 @head = {
 	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/banner.css")">
 	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/page.css")">
-	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/article.css")">
+	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/article.css")">
 	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/header.css")">
 	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/footer.css")">
+    <script defer src="@routes.Assets.versioned("js/utils/BannerUtil.js")" type="text/javascript"></script>
 }
 
 @body = {
@@ -16,13 +17,13 @@
 		/* Header */
 		views.html.components._header(),
 		/* Main */
-		views.html.components.layouts._article(viewModel.article),
+		views.html.components._article(viewModel),
 		/* Footer */
 		views.html.components._footer(),
 		/* Left sidebar */
-		Html("LEFT"),
+        views.html.components._sidebar(viewModel.sidebarLeftBanners),
 		/* Right sidebar */
-		Html("RIGHT"),
+        views.html.components._sidebar(viewModel.sidebarRightBanners),
 	)
 }
 

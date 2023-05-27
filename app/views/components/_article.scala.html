@@ -1,0 +1,28 @@
+@import viewModels.ArticlePageViewModel
+@(viewModel: ArticlePageViewModel)
+
+<article>
+    <h1>@viewModel.article.title</h1>
+    <div class="description">
+    @viewModel.article.description
+    </div>
+    <div class="bodyText">
+    @viewModel.article.bodyText
+    </div>
+</article>
+
+@for(b <- viewModel.bodyBanners) {
+    <div class="bannerWrapper body bottom">
+        <iframe data-basepath-set="0" data-src="@b.serve" class="banner body" width="@b.width" height="@b.height" scrolling="no" tabindex="-1" loading="lazy"
+            src="@b.serve"
+            srcdoc="
+                <base href='@b.basepath'>
+                @b.html
+            ">
+        </iframe>
+    </div>
+}
+
+
+
+

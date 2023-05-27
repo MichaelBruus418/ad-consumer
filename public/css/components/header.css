@@ -24,6 +24,7 @@ header .container .center {
     grid-area: center;
     font-size: 70px;
     font-weight: bold;
+    text-align: center;
 }
 
 header .container .right {
@@ -41,7 +42,8 @@ header button {
     background-color: inherit;
     height: 30px;
     border-radius: 5px;
-    font: inherit;
+    border-width: 0;
+    /*font: inherit;*/
     letter-spacing: inherit;
     padding: 0 10px;
 }

@@ -21,22 +21,28 @@
 }
 
 #pageLayout_main {
-    background-color: yellow;
+    /*background-color: yellow;*/
     grid-area: main;
     overflow-y: visible;
     margin: 20px;
 }
 
 .pageLayout_sidebar {
-    background-color: green;
+    /*background-color: green;*/
     overflow: clip;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-#pageLayout_sidebarLeft {
+.pageLayout_sidebar.left {
+    /*background-color: purple;*/
     grid-area: sidebarLeft;
 }
 
-#pageLayout_sidebarRight {
+.pageLayout_sidebar.right {
+    /*background-color: yellow;*/
     grid-area: sidebarRight;
 }
 

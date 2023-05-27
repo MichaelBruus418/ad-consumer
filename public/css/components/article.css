@@ -9,3 +9,9 @@ article .description {
     font-size: 1.5em;
     margin-bottom: 10px;
 }
+
+article img.article {
+    margin: 20px auto;
+    max-width:100%;
+    max-height:100%;
+}

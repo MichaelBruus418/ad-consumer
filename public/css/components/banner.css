@@ -1,8 +1,8 @@
 
 .bannerWrapper {
     /*background-color: blue;*/
-    display: flex;
-    justify-content: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
 }
 
 .bannerWrapper.body {
@@ -11,6 +11,13 @@
 
 .bannerWrapper.body.bottom {
     padding-bottom: 0;
+}
+
+.bannerWrapper.sidebar {
+    /*background-color: blue;*/
+    width: 300px;
+    display: flex;
+    justify-content: center;
 }
 
 iframe.banner {
@@ -23,4 +30,8 @@ iframe.banner:focus {
 }
 
 iframe.banner.body {
+}
+
+iframe.banner.sidebar {
+    /*visibility: hidden;*/
 }
