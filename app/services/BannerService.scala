@@ -23,7 +23,7 @@ class BannerService @Inject() (ws: WSClient) {
     val data = Json.obj(
       "publisher"   -> "Jyllands-Posten",
       "zone"        -> zone.toString.toLowerCase(),
-      "includeHtml" -> true,
+      "includeHtml" -> false,
     )
 
     val eventualBannerOpt = ws
