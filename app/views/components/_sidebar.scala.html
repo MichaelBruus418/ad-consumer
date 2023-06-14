@@ -1,20 +1,8 @@
 @(banners: List[Banner])
 
-@for(b <- banners) {
+@for(banner <- banners) {
     <div class="bannerWrapper sidebar">
-        <iframe
-        class="banner sidebar"
-        width="@b.width"
-        height="@b.height"
-        scrolling="no"
-        tabindex="-1"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        src="@b.serve"
-            @if(b.html.nonEmpty) {
-                srcdoc="@b.html"
-                }
-        ></iframe>
+      @views.html.components._banner(banner)
     </div>
 }
 

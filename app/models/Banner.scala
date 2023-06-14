@@ -6,6 +6,7 @@ case class Banner(
   serve: String,
   downloadedImpression: String,
   viewableImpression: String,
+  hash: String,
   zone: String,
   width: Int,
   height: Int,

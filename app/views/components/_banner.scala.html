@@ -1,0 +1,16 @@
+@(banner: Banner)
+
+<iframe
+class="banner"
+data-hash="@banner.hash"
+width="@banner.width"
+height="@banner.height"
+scrolling="no"
+tabindex="-1"
+loading="lazy"
+referrerpolicy="strict-origin-when-cross-origin"
+src="@banner.serve"
+    @if(banner.html.nonEmpty) {
+        srcdoc="@banner.html"
+        }
+></iframe>

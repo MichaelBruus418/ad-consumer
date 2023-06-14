@@ -1,30 +1,53 @@
 @import viewModels.ArticlePageViewModel
+@import play.api.libs.json.Json
 @(viewModel: ArticlePageViewModel)
 
-@title = @{viewModel.article.title}
-
-@head = {
-	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/banner.css")">
-	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/page.css")">
-	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/article.css")">
-	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/header.css")">
-	<link rel="stylesheet" href="@routes.Assets.versioned("css/components/footer.css")">
-    <script defer src="@routes.Assets.versioned("js/utils/BannerUtil.js")" type="text/javascript"></script>
+@{
+    val banners = List.concat(viewModel.bodyBanners, viewModel.sidebarLeftBanners, viewModel.sidebarRightBanners)
 }
 
-@body = {
-	@views.html.components.layouts._page(
-		/* Header */
-		views.html.components._header(),
-		/* Main */
-		views.html.components._article(viewModel),
-		/* Footer */
-		views.html.components._footer(),
-		/* Left sidebar */
+    @title = @{
+        viewModel.article.title
+    }
+
+    @head = {
+        <link rel="stylesheet" href="@routes.Assets.versioned("css/components/banner.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("css/components/layouts/page.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("css/components/article.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("css/components/header.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("css/components/footer.css")">
+        <script>
+        @{
+            val banners = List.concat(viewModel.bodyBanners, viewModel.sidebarLeftBanners, viewModel.sidebarRightBanners)
+                .distinct
+                .map(b => (b.hash, Map("downloaded" -> b.downloadedImpression, "viewable" -> b.viewableImpression)))
+            val json = Json.toJson(banners).toString()
+            // Html(s"const bannerData = $json")
+            // Html(s"const bannerData = new Map(Object.entries(JSON.parse('$json')));")
+            Html(s"const bannerData = new Map(JSON.parse('$json'));")
+
+        }
+        </script>
+    }
+
+    @body = {
+    @views.html.components.layouts._page(
+        /* Header */
+        views.html.components._header(),
+        /* Main */
+        views.html.components._article_body(viewModel),
+        /* Footer */
+        views.html.components._footer(),
+        /* Left sidebar */
         views.html.components._sidebar(viewModel.sidebarLeftBanners),
-		/* Right sidebar */
+        /* Right sidebar */
         views.html.components._sidebar(viewModel.sidebarRightBanners),
-	)
-}
+    )
 
-@_main(title)(head)(body)
+    }
+
+
+    @_main(title)(head)(body)
+
+
+

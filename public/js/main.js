@@ -1,9 +1,5 @@
-"use strict";
 
+import {BannerUtil} from "./utils/BannerUtil.js";
 
-const elms = document.querySelectorAll('iframe.banner');
-elms.forEach(elm => {
-  // BannerUtil.setBasePath(elm, "")
-})
-
+BannerUtil.attachListeners(bannerData)
 

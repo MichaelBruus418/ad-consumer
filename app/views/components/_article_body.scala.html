@@ -1,0 +1,22 @@
+@import viewModels.ArticlePageViewModel
+@(viewModel: ArticlePageViewModel)
+
+<article>
+    <h1>@viewModel.article.title</h1>
+    <div class="description">
+    @viewModel.article.description
+    </div>
+    <div class="bodyText">
+    @viewModel.article.bodyText
+    </div>
+</article>
+
+@for(banner <- viewModel.bodyBanners) {
+    <div class="bannerWrapper body bottom">
+    @views.html.components._banner(banner)
+    </div>
+}
+
+
+
+

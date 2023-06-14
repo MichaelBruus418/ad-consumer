@@ -1,6 +1,7 @@
 package controllers
 
 import enums.Zone
+import models.Banner
 
 import javax.inject._
 import play.api.mvc._
@@ -18,10 +19,16 @@ class HomeController @Inject() (
   val bannerService: BannerService,
 ) extends BaseController {
 
+  def indexOFF(): Action[AnyContent] = Action {
+    println("Ad-Consumer: HomeController.index() called.")
+    Ok("Loop this")
+  }
+
   def index(): Action[AnyContent] = Action.async {
     implicit request: Request[AnyContent] =>
+      println("Ad-Consumer: HomeController.index() called.")
 
-      val eventuals =
+      val eventuals: List[Future[Option[Banner]]] =
         List(
           bannerService.getBanner(Zone.BODY),
           bannerService.getBanner(Zone.SIDEBAR),
@@ -33,8 +40,8 @@ class HomeController @Inject() (
       // Transform successful eventuals to a list in a single future.
       val eventual = Future.sequence(eventuals.map(_.transform(Success(_))))
       // Split into successes and failures
-      val eventualBannerOpts = eventual.map(_.collect { case Success(x) => x })
-      val eventualFailures = eventual.map(_.collect { case Failure(x) => x })
+      val eventualBannerOpts = eventual.map(_.collect{case Success(x) => x})
+      val eventualFailures = eventual.map(_.collect{case Failure(x) => x })
 
       // Error handling of failed futures
       for {

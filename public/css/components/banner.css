@@ -29,9 +29,18 @@ iframe.banner:focus {
     outline: none;
 }
 
-iframe.banner.body {
+/*
+Iframes in sidebar
+*/
+.bannerWrapper.sidebar iframe.banner {
+    /*background-color: blue;*/
+    /*visibility: hidden;*/
 }
 
-iframe.banner.sidebar {
+/*
+Iframes in body
+*/
+.bannerWrapper.body iframe.banner {
+    /*background-color: blue;*/
     /*visibility: hidden;*/
 }
